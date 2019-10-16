@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)https://marktext.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mark Text</title><link rel="shortcut icon" href="https://marktext.app/favicon.png"><link href="./Mark Text_files/renderer.133fc04d8d01f1d4c03b.css" rel="stylesheet"><style id="marktext-website-themes">@media not print {
+:root {
+  /*editor*/
+  --themeColor: #e2c08d;
+  --highlightColor: #ffffff10;
+  --selectionColor: #67769660;
+  --editorColor: #9da5b4;
+  --editorColor50: rgba(157, 165, 180, .5);
+  --editorColor30: rgba(157, 165, 180, .3);
+  --editorColor10: rgba(157, 165, 180, .1);
+  --editorColor04: rgba(157, 165, 180, .04);
+  --editorBgColor: #282c34;
+  --deleteColor: #ff6969;
+  --iconColor: rgba(255, 255, 255, .8);
+  --codeBgColor: #3a3f4b;
+  --codeBlockBgColor: #3a3f4b;
+
+  /*marktext*/
+  --sideBarColor: #9da5b4;
+  --sideBarTitleColor: #9da5b4;
+  --sideBarTextColor: #9da5b4;
+  --sideBarBgColor: #21252b;
+  --sideBarItemHoverBgColor: #3a3f4b;
+  --itemBgColor: #21252b;
+  --floatBgColor: #21252b;
+  --floatHoverColor: #3a3f4b;
+  --floatBorderColor: #181a1f;
+  --maskColor: rgba(0, 0, 0, .7);
+  --editorAreaWidth: 700px;
+}
+
+::-webkit-scrollbar {
+  background: var(--editorBgColor);
+}
+::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+::-webkit-scrollbar:vertical:hover {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: #414956;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5362;
+}
+
+.el-tooltip__popper.is-dark {
+  border: 1px solid #181a1f;
+}
+.v-modal {
+  background: #000;
+}
+.el-dialog {
+  box-shadow: 0 1px 3px rgba(0,0,0,.3) !important;
+  border: 1px solid #181a1f !important;
+}
+
+.mt-notification > .notice-bg.icon-message {
+  background: #4d78cc !important;
+}
+
+.drop-container.active {
+  border: 1px dashed #4d78cc !important;
+}
+
+.title-bar .frameless-titlebar-button > div > svg {
+  fill: #ffffff;
+}
+.frameless-titlebar-minimize[data-v-0a64f081]:hover,
+.frameless-titlebar-toggle[data-v-0a64f081]:hover {
+  background-color: rgba(215, 218, 224, 0.05) !important;
+}
+
+.side-bar {
+  border-right: 1px solid #181a1f !important;
+}
+.left-column ul > li > svg {
+  color: rgba(215, 218, 224, 0.6) !important;
+}
+.left-column ul > li:hover > svg {
+  color: #d7dae0 !important;
+}
+.left-column ul > li.active > svg {
+  color: #4d78cc !important;
+}
+.open-project svg,
+.empty .no-data svg,
+.side-bar-toc .no-data svg {
+  fill: #4d78cc !important;
+}
+
+.recent-files-projects a,
+.open-project a {
+  color: #9da5b4 !important;
+  border: 1px solid #181a1f !important;
+  background-color: #353b45 !important;
+  background-image: linear-gradient(#3a3f4b, #353b45) !important;
+  box-shadow: none !important;
+}
+.recent-files-projects a:hover,
+.open-project a:hover {
+  color: #d7dae0 !important;
+  background-image: linear-gradient(#3e4451, #3a3f4b) !important;
+}
+
+.editor-tabs {
+  border-bottom: 1px solid #181a1f;
+  box-shadow: none !important;
+}
+.tabs-container > li,
+.tabs-container > li.active {
+  background: var(--editorBgColor) !important;
+}
+.tabs-container > li.active {
+  border: 1px solid #181a1f;
+  border-bottom: none;
+}
+.tabs-container > li.active:not(:last-child):after {
+  top: 0 !important;
+  right: auto !important;
+  width: 2px !important;
+  height: auto !important;
+  background: #4d78cc !important;
+}
+.tabs-container svg.close-icon #unsaved-circle-icon {
+  fill: #4d78cc;
+}
+
+:not(pre) > code[class*="language-"],
+pre.ag-paragraph {
+  background: var(--codeBlockBgColor) !important;
+}
+
+p:not(.ag-active)[data-role="hr"]::before {
+  border-top: 2px dashed #4b5362 !important;
+  background: none !important;
+}
+
+.input-wrapper {
+  background: #1b1d23 !important;
+}
+
+li.ag-task-list-item {
+  list-style-type: none;
+  position: relative;
+}
+li.task-list-item > input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin: 4px 0px 0px;
+  top: -1px;
+  left: -22px;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: all .2s ease;
+}
+li.task-list-item > input[checked] {
+  transform: rotate(0);
+  opacity: .6;
+}
+li.task-list-item > input[type=checkbox]::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 2px solid var(--editorColor);
+  border-radius: 2px;
+  background-color: var(--editorBgColor);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .2s ease;
+}
+li.task-list-item > input[checked]::before {
+  border: transparent;
+  background-color: var(--editorColor);
+}
+li.task-list-item > input::after {
+  content: '';
+  transform: rotate(-45deg) scale(0);
+  width: 9px;
+  height: 5px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  position: absolute;
+  display: inline-block;
+  top: 1px;
+  left: 5px;
+  transition: all .2s ease;
+}
+li.task-list-item > input[checked]::after {
+  transform: rotate(-45deg) scale(1);
+}
+
+/* ------------------------------------ */
+
+/*
+ * Prism.js theme (override light theme)
+ */
+
+/* @import url("prismjs/one-dark.theme.css"); */
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+
+The MIT License (MIT)
+
+Copyright (c) 2016 Adrián
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+
+code[class*="language-"],
+pre.ag-paragraph {
+  color: #ABB2BF;
+  /*font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;*/
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  overflow: visible;
+}
+
+/* Code Fence */
+pre.ag-paragraph {
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 0.3em;
+}
+
+/* Inline Code */
+:not(pre) > code[class*="language-"],
+pre.ag-paragraph {
+  background: #282c34;
+}
+
+/* Inline Code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #5C6370;
+}
+
+.token.punctuation {
+  color: #abb2bf;
+}
+
+.token.selector,
+.token.tag {
+  color: #e06c75;
+}
+
+.token.property,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.attr-name,
+.token.deleted {
+  color: #d19a66;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.builtin,
+.token.inserted {
+  color: #98c379;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #56b6c2;
+}
+
+.token.atrule,
+.token.keyword {
+  color: #c678dd;
+}
+
+.token.function {
+  color: #61afef;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #c678dd;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+}</style></head><body><noscript><strong>We're sorry but marktext doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"><div data-v-cf99534e="" class="title-bar"><div data-v-cf99534e="" class="nav"><h1 data-v-cf99534e=""><img data-v-cf99534e="" src="data:image/png;base64,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" alt="marktext">
+      Mark Text
+    </h1> <div data-v-cf99534e="" class="nav-group"><a data-v-cf99534e="" href="javascript:;">Features</a> <a data-v-cf99534e="" href="javascript:;">Themes</a> <a data-v-cf99534e="" href="javascript:;">Sponsors</a> <a data-v-cf99534e="" href="https://github.com/marktext/marktext" target="_blank"><svg data-v-cf99534e="" viewBox="0 0 1024 1024" aria-hidden="true" class="icon"><use data-v-cf99534e="" xlink:href="./static/sprite.svg#github-usage"></use></svg> <span data-v-cf99534e="">GitHub</span></a></div></div> <div data-v-cf99534e="" class="title-content"><div data-v-cf99534e="" class="des"><div data-v-cf99534e="" class="slogan-text">Simple and Elegant Markdown Editor</div> <div data-v-cf99534e="" class="slogan-text">Focused on speed and usability.</div> <div data-v-cf99534e="" class="download-group"><div data-v-cf99534e="" class="download-info">Available for macOS, Windows and Linux.</div> <div data-v-cf99534e="" class="button-group"><a data-v-cf99534e="" href="https://github.com/marktext/marktext/releases/download/v0.15.0/marktext-0.15.0.dmg" target="_blank" class="button"><svg data-v-cf99534e="" viewBox="0 0 1024 1024" aria-hidden="true" class="icon"><use data-v-cf99534e="" xlink:href="./static/sprite.svg#mac-usage"></use></svg> <span data-v-cf99534e="">macOS</span></a> <a data-v-cf99534e="" href="https://github.com/marktext/marktext/releases/download/v0.15.0/marktext-setup-0.15.0.exe" target="_blank" class="button"><svg data-v-cf99534e="" viewBox="0 0 1024 1024" aria-hidden="true" class="icon"><use data-v-cf99534e="" xlink:href="./static/sprite.svg#windows-usage"></use></svg> <span data-v-cf99534e="">Windows</span></a> <a data-v-cf99534e="" href="https://github.com/marktext/marktext/releases/download/v0.15.0/marktext-0.15.0-x86_64.AppImage" target="_blank" class="button"><svg data-v-cf99534e="" viewBox="0 0 1024 1024" aria-hidden="true" class="icon"><use data-v-cf99534e="" xlink:href="./static/sprite.svg#linux-usage"></use></svg> <span data-v-cf99534e="">Linux</span></a></div> <div data-v-cf99534e="" class="releases">
+          or see <a data-v-cf99534e="" href="https://github.com/marktext/marktext/releases/latest">all releases</a></div></div></div> <div data-v-cf99534e="" class="image"><img data-v-cf99534e="" src="./Mark Text_files/drink_coffee.image--assets.svg" alt=""></div></div></div> <div data-v-6b76ec60="" class="feature"><h2 data-v-6b76ec60="" id="features" class="slogan">&lt; Features /&gt;</h2> <div data-v-6b76ec60="" class="feature-list"><ul data-v-6b76ec60=""><li data-v-6b76ec60="" class=""><div data-v-6b76ec60="" class="title">Table Block</div> <div data-v-6b76ec60="" class="description">Support GFM table block, you can remove/add rows and columns.</div></li><li data-v-6b76ec60="" class="active"><div data-v-6b76ec60="" class="title">Diagram</div> <div data-v-6b76ec60="" class="description">Support Flowchart, Sequence diagram, Gantt diagram, Vega chart.</div></li><li data-v-6b76ec60="" class=""><div data-v-6b76ec60="" class="title">Inline Formats</div> <div data-v-6b76ec60="" class="description">Support CommonMark and GitHub Flavored Markdown Spec.</div></li><li data-v-6b76ec60="" class=""><div data-v-6b76ec60="" class="title">Math Formula</div> <div data-v-6b76ec60="" class="description">Markdown extensions math expressions (KaTeX)</div></li><li data-v-6b76ec60="" class=""><div data-v-6b76ec60="" class="title">Code Block</div> <div data-v-6b76ec60="" class="description">Support GFM code fense, highlight by prismjs.</div></li></ul></div> <div data-v-6b76ec60="" class="feature-images"><div data-v-6b76ec60="" class="image-list"><div data-v-6b76ec60="" class="app-container"><div data-v-6b76ec60="" class="app-header"><span data-v-6b76ec60="" class="dot red"></span> <span data-v-6b76ec60="" class="dot orange"></span> <span data-v-6b76ec60="" class="dot green"></span> <span data-v-6b76ec60="" class="feature-name">Diagram</span></div> <div data-v-6b76ec60=""><article class="markdown-body"><h4 id="basic-sequence-diagram" class="atx">Basic sequence diagram</h4>
+<div class="mermaid" data-processed="true"><svg id="mermaid-1571217267337" width="100%" xmlns="http://www.w3.org/2000/svg" height="100%" style="max-width:750px;" viewBox="-50 -10 750 465"><style>
+
+
+#mermaid-1571217267337 .label {
+  font-family: 'trebuchet ms', verdana, arial;
+  color: #333; }
+
+#mermaid-1571217267337 .node rect,
+#mermaid-1571217267337 .node circle,
+#mermaid-1571217267337 .node ellipse,
+#mermaid-1571217267337 .node polygon {
+  fill: #BDD5EA;
+  stroke: purple;
+  stroke-width: 1px; }
+
+#mermaid-1571217267337 .node.clickable {
+  cursor: pointer; }
+
+#mermaid-1571217267337 .arrowheadPath {
+  fill: lightgrey; }
+
+#mermaid-1571217267337 .edgePath .path {
+  stroke: lightgrey;
+  stroke-width: 1.5px; }
+
+#mermaid-1571217267337 .edgeLabel {
+  background-color: #e8e8e8; }
+
+#mermaid-1571217267337 .cluster rect {
+  fill: #6D6D65 !important;
+  stroke: rgba(255, 255, 255, 0.25) !important;
+  stroke-width: 1px !important; }
+
+#mermaid-1571217267337 .cluster text {
+  fill: #F9FFFE; }
+
+#mermaid-1571217267337 div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 12px;
+  background: #6D6D65;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100; }
+
+#mermaid-1571217267337 .actor {
+  stroke: #81B1DB;
+  fill: #BDD5EA; }
+
+#mermaid-1571217267337 text.actor {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1571217267337 .actor-line {
+  stroke: lightgrey; }
+
+#mermaid-1571217267337 .messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: lightgrey; }
+
+#mermaid-1571217267337 .messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: lightgrey; }
+
+#mermaid-1571217267337 #arrowhead {
+  fill: lightgrey; }
+
+#mermaid-1571217267337 #crosshead path {
+  fill: lightgrey !important;
+  stroke: lightgrey !important; }
+
+#mermaid-1571217267337 .messageText {
+  fill: lightgrey;
+  stroke: none; }
+
+#mermaid-1571217267337 .labelBox {
+  stroke: #81B1DB;
+  fill: #BDD5EA; }
+
+#mermaid-1571217267337 .labelText {
+  fill: lightgrey;
+  stroke: none; }
+
+#mermaid-1571217267337 .loopText {
+  fill: lightgrey;
+  stroke: none; }
+
+#mermaid-1571217267337 .loopLine {
+  stroke-width: 2;
+  stroke-dasharray: '2 2';
+  stroke: #81B1DB; }
+
+#mermaid-1571217267337 .note {
+  stroke: rgba(255, 255, 255, 0.25);
+  fill: #fff5ad; }
+
+#mermaid-1571217267337 .noteText {
+  fill: black;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 14px; }
+
+#mermaid-1571217267337 .activation0 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+#mermaid-1571217267337 .activation1 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+#mermaid-1571217267337 .activation2 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+
+#mermaid-1571217267337 .section {
+  stroke: none;
+  opacity: 0.2; }
+
+#mermaid-1571217267337 .section0 {
+  fill: rgba(255, 255, 255, 0.3); }
+
+#mermaid-1571217267337 .section2 {
+  fill: #EAE8B9; }
+
+#mermaid-1571217267337 .section1,
+#mermaid-1571217267337 .section3 {
+  fill: white;
+  opacity: 0.2; }
+
+#mermaid-1571217267337 .sectionTitle0 {
+  fill: #F9FFFE; }
+
+#mermaid-1571217267337 .sectionTitle1 {
+  fill: #F9FFFE; }
+
+#mermaid-1571217267337 .sectionTitle2 {
+  fill: #F9FFFE; }
+
+#mermaid-1571217267337 .sectionTitle3 {
+  fill: #F9FFFE; }
+
+#mermaid-1571217267337 .sectionTitle {
+  text-anchor: start;
+  font-size: 11px;
+  text-height: 14px; }
+
+
+#mermaid-1571217267337 .grid .tick {
+  stroke: lightgrey;
+  opacity: 0.3;
+  shape-rendering: crispEdges; }
+
+#mermaid-1571217267337 .grid path {
+  stroke-width: 0; }
+
+
+#mermaid-1571217267337 .today {
+  fill: none;
+  stroke: #DB5757;
+  stroke-width: 2px; }
+
+
+
+#mermaid-1571217267337 .task {
+  stroke-width: 2; }
+
+#mermaid-1571217267337 .taskText {
+  text-anchor: middle;
+  font-size: 11px; }
+
+#mermaid-1571217267337 .taskTextOutsideRight {
+  fill: #323D47;
+  text-anchor: start;
+  font-size: 11px; }
+
+#mermaid-1571217267337 .taskTextOutsideLeft {
+  fill: #323D47;
+  text-anchor: end;
+  font-size: 11px; }
+
+
+#mermaid-1571217267337 .taskText0,
+#mermaid-1571217267337 .taskText1,
+#mermaid-1571217267337 .taskText2,
+#mermaid-1571217267337 .taskText3 {
+  fill: #323D47; }
+
+#mermaid-1571217267337 .task0,
+#mermaid-1571217267337 .task1,
+#mermaid-1571217267337 .task2,
+#mermaid-1571217267337 .task3 {
+  fill: #BDD5EA;
+  stroke: rgba(255, 255, 255, 0.5); }
+
+#mermaid-1571217267337 .taskTextOutside0,
+#mermaid-1571217267337 .taskTextOutside2 {
+  fill: lightgrey; }
+
+#mermaid-1571217267337 .taskTextOutside1,
+#mermaid-1571217267337 .taskTextOutside3 {
+  fill: lightgrey; }
+
+
+#mermaid-1571217267337 .active0,
+#mermaid-1571217267337 .active1,
+#mermaid-1571217267337 .active2,
+#mermaid-1571217267337 .active3 {
+  fill: #81B1DB;
+  stroke: rgba(255, 255, 255, 0.5); }
+
+#mermaid-1571217267337 .activeText0,
+#mermaid-1571217267337 .activeText1,
+#mermaid-1571217267337 .activeText2,
+#mermaid-1571217267337 .activeText3 {
+  fill: #323D47 !important; }
+
+
+#mermaid-1571217267337 .done0,
+#mermaid-1571217267337 .done1,
+#mermaid-1571217267337 .done2,
+#mermaid-1571217267337 .done3 {
+  stroke: grey;
+  fill: lightgrey;
+  stroke-width: 2; }
+
+#mermaid-1571217267337 .doneText0,
+#mermaid-1571217267337 .doneText1,
+#mermaid-1571217267337 .doneText2,
+#mermaid-1571217267337 .doneText3 {
+  fill: #323D47 !important; }
+
+
+#mermaid-1571217267337 .crit0,
+#mermaid-1571217267337 .crit1,
+#mermaid-1571217267337 .crit2,
+#mermaid-1571217267337 .crit3 {
+  stroke: #E83737;
+  fill: #E83737;
+  stroke-width: 2; }
+
+#mermaid-1571217267337 .activeCrit0,
+#mermaid-1571217267337 .activeCrit1,
+#mermaid-1571217267337 .activeCrit2,
+#mermaid-1571217267337 .activeCrit3 {
+  stroke: #E83737;
+  fill: #81B1DB;
+  stroke-width: 2; }
+
+#mermaid-1571217267337 .doneCrit0,
+#mermaid-1571217267337 .doneCrit1,
+#mermaid-1571217267337 .doneCrit2,
+#mermaid-1571217267337 .doneCrit3 {
+  stroke: #E83737;
+  fill: lightgrey;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges; }
+
+#mermaid-1571217267337 .doneCritText0,
+#mermaid-1571217267337 .doneCritText1,
+#mermaid-1571217267337 .doneCritText2,
+#mermaid-1571217267337 .doneCritText3 {
+  fill: #323D47 !important; }
+
+#mermaid-1571217267337 .activeCritText0,
+#mermaid-1571217267337 .activeCritText1,
+#mermaid-1571217267337 .activeCritText2,
+#mermaid-1571217267337 .activeCritText3 {
+  fill: #323D47 !important; }
+
+#mermaid-1571217267337 .titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: #323D47; }
+
+#mermaid-1571217267337 g.classGroup text {
+  fill: purple;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 10px; }
+
+#mermaid-1571217267337 g.classGroup rect {
+  fill: #BDD5EA;
+  stroke: purple; }
+
+#mermaid-1571217267337 g.classGroup line {
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 .classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #BDD5EA;
+  opacity: 0.5; }
+
+#mermaid-1571217267337 .classLabel .label {
+  fill: purple;
+  font-size: 10px; }
+
+#mermaid-1571217267337 .relation {
+  stroke: purple;
+  stroke-width: 1;
+  fill: none; }
+
+#mermaid-1571217267337 #compositionStart {
+  fill: purple;
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 #compositionEnd {
+  fill: purple;
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 #aggregationStart {
+  fill: #BDD5EA;
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 #aggregationEnd {
+  fill: #BDD5EA;
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 #dependencyStart {
+  fill: purple;
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 #dependencyEnd {
+  fill: purple;
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 #extensionStart {
+  fill: purple;
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 #extensionEnd {
+  fill: purple;
+  stroke: purple;
+  stroke-width: 1; }
+
+#mermaid-1571217267337 .commit-id,
+#mermaid-1571217267337 .commit-msg,
+#mermaid-1571217267337 .branch-label {
+  fill: lightgrey;
+  color: lightgrey; }
+</style><style>#mermaid-1571217267337 {
+    color: rgb(157, 165, 180);
+    font: normal normal 400 normal 14px / normal "Open Sans", sans-serif;
+  }</style><g></g><g><line id="actor0" x1="75" y1="5" x2="75" y2="454" class="actor-line" stroke-width="0.5px" stroke="#999"></line><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="75" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle; font-size: 14px; font-family: Open-Sans, sans-serif;"><tspan x="75" dy="0">Alice</tspan></text></g><g><line id="actor1" x1="275" y1="5" x2="275" y2="454" class="actor-line" stroke-width="0.5px" stroke="#999"></line><rect x="200" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="275" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle; font-size: 14px; font-family: Open-Sans, sans-serif;"><tspan x="275" dy="0">Bob</tspan></text></g><g><line id="actor2" x1="475" y1="5" x2="475" y2="454" class="actor-line" stroke-width="0.5px" stroke="#999"></line><rect x="400" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="475" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle; font-size: 14px; font-family: Open-Sans, sans-serif;"><tspan x="475" dy="0">John</tspan></text></g><defs><marker id="arrowhead" refX="5" refY="2" markerWidth="6" markerHeight="4" orient="auto"><path d="M 0,0 V 4 L6,2 Z"></path></marker></defs><defs><marker id="crosshead" markerWidth="15" markerHeight="8" orient="auto" refX="16" refY="4"><path fill="black" stroke="#000000" stroke-width="1px" d="M 9,2 V 6 L16,4 Z" style="stroke-dasharray: 0, 0;"></path><path fill="none" stroke="#000000" stroke-width="1px" d="M 0,1 L 6,7 M 6,1 L 0,7" style="stroke-dasharray: 0, 0;"></path></marker></defs><g><text x="175" y="93" class="messageText" style="text-anchor: middle;">Hello Bob, how are you?</text><line x1="75" y1="100" x2="275" y2="100" class="messageLine0" stroke-width="2" stroke="black" marker-end="url(#arrowhead)" style="fill: none;"></line></g><g><text x="375" y="128" class="messageText" style="text-anchor: middle;">How about you John?</text><line x1="275" y1="135" x2="475" y2="135" class="messageLine1" stroke-width="2" stroke="black" marker-end="url(#arrowhead)" style="stroke-dasharray: 3, 3; fill: none;"></line></g><g><text x="175" y="163" class="messageText" style="text-anchor: middle;">I am good thanks!</text><line x1="275" y1="170" x2="75" y2="170" class="messageLine1" stroke-width="2" stroke="black" marker-end="url(#crosshead)" style="stroke-dasharray: 3, 3; fill: none;"></line></g><g><text x="375" y="198" class="messageText" style="text-anchor: middle;">I am good thanks!</text><line x1="275" y1="205" x2="475" y2="205" class="messageLine0" stroke-width="2" stroke="black" marker-end="url(#crosshead)" style="fill: none;"></line></g><g><rect x="500" y="215" fill="#EDF2AE" stroke="#666" width="150" height="84" rx="0" ry="0" class="note"></rect><text x="496" y="239" fill="black" class="noteText"><tspan x="516" fill="black">Bob thinks a long</tspan></text><text x="496" y="255" fill="black" class="noteText"><tspan x="516" fill="black">long time, so long</tspan></text><text x="496" y="271" fill="black" class="noteText"><tspan x="516" fill="black">that the text does</tspan></text><text x="496" y="287" fill="black" class="noteText"><tspan x="516" fill="black">not fit on a row.</tspan></text></g><g><text x="175" y="327" class="messageText" style="text-anchor: middle;">Checking with John...</text><line x1="275" y1="334" x2="75" y2="334" class="messageLine1" stroke-width="2" stroke="black" style="stroke-dasharray: 3, 3; fill: none;"></line></g><g><text x="275" y="362" class="messageText" style="text-anchor: middle;">Yes... John, how are you?</text><line x1="75" y1="369" x2="475" y2="369" class="messageLine0" stroke-width="2" stroke="black" style="fill: none;"></line></g><g><rect x="0" y="389" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="75" y="421.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle; font-size: 14px; font-family: Open-Sans, sans-serif;"><tspan x="75" dy="0">Alice</tspan></text></g><g><rect x="200" y="389" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="275" y="421.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle; font-size: 14px; font-family: Open-Sans, sans-serif;"><tspan x="275" dy="0">Bob</tspan></text></g><g><rect x="400" y="389" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="475" y="421.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle; font-size: 14px; font-family: Open-Sans, sans-serif;"><tspan x="475" dy="0">John</tspan></text></g></svg></div>
+</article></div></div></div></div></div> <div data-v-0825497c="" class="theme"><h2 data-v-0825497c="" id="themes" class="slogan">{ Themes }</h2> <img data-v-0825497c="" src="./Mark Text_files/notes.image--assets.svg" alt="" class="bg-image"> <div data-v-0825497c="" class="app-container"><div data-v-0825497c="" class="app-header"><span data-v-0825497c="" class="dot red"></span> <span data-v-0825497c="" class="dot orange"></span> <span data-v-0825497c="" class="dot green"></span> <span data-v-0825497c="" class="feature-name">One Dark</span></div> <div data-v-0825497c=""><article class="markdown-body"><h5 id="themes" class="atx">Themes</h5>
+<p><strong>Strong</strong> , <em>Emphasis</em>, <code>inline code</code>, ❤️, <a href="http://google.com/">Hyperlink</a>, <del>Strike</del>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>N</mi></msubsup><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mi>g</mi><mo>(</mo><mi>t</mi><mo separator="true">,</mo><mi>i</mi><mo>)</mo><mtext>d</mtext><mi>t</mi></mrow><annotation encoding="application/x-tex">\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.399828em;vertical-align:-0.35582em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.981231em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0005599999999999772em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.044008em;"><span style="top:-2.34418em;margin-left:-0.19445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span style="top:-3.2579000000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35582em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mord text"><span class="mord">d</span></span><span class="mord mathdefault">t</span></span></span></span> .</p>
+<ul>
+<li class="task-list-item"><input type="checkbox" disabled=""> <p>Contrary to popular belief.</p>
+</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled=""> <p>Lorem Ipsum is not simply random text.</p>
+</li>
+</ul>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mfrac><mi>n</mi><mn>2</mn></mfrac><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>i</mi><mi>f</mi><mtext>&nbsp;</mtext><mi>n</mi><mtext>&nbsp;</mtext><mi>i</mi><mi>s</mi><mtext>&nbsp;</mtext><mi>e</mi><mi>v</mi><mi>e</mi><mi>n</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>3</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>i</mi><mi>f</mi><mtext>&nbsp;</mtext><mi>n</mi><mtext>&nbsp;</mtext><mi>i</mi><mi>s</mi><mtext>&nbsp;</mtext><mi>o</mi><mi>d</mi><mi>d</mi></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">f(n)
+\begin{cases}
+\cfrac n2, &amp;if\ n\ is\ even\\
+3n + 1, &amp;if\  n\ is\ odd
+\end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.7159999999999997em;vertical-align:-1.608em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05002em;"><span style="top:-2.49999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-3.15001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.30002em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55002em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.1079999999999997em;"><span style="top:-4.108em;"><span class="pstrut" style="height:3.59em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5899999999999999em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord">2</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.74em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault">n</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span></span></span><span class="mpunct">,</span></span></span><span style="top:-2.4139999999999997em;"><span class="pstrut" style="height:3.59em;"></span><span class="mord"><span class="mord">3</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.608em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.1079999999999997em;"><span style="top:-4.108em;"><span class="pstrut" style="height:3.59em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace">&nbsp;</span><span class="mord mathdefault">n</span><span class="mspace">&nbsp;</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mspace">&nbsp;</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span></span></span><span style="top:-2.4139999999999997em;"><span class="pstrut" style="height:3.59em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace">&nbsp;</span><span class="mord mathdefault">n</span><span class="mspace">&nbsp;</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mspace">&nbsp;</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.608em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span><pre class=" language-javascript"><code class="fenced-code-block  language-javascript"><span class="token comment">// Yeh, Mark Text is simple and elegant markdown editor.</span>
+<span class="token keyword">const</span> marktext <span class="token operator">=</span> <span class="token string">'markdown editor'</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="center">name</th>
+<th align="center">use for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a href="https://github.com/marktext/marktext">Mark Text</a></td>
+<td align="center">Write markdown</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>It has roots in a piece of classical Latin literature from 45 BC</p>
+<p>making it over 2000 years old.</p>
+</blockquote>
+</article></div></div> <div data-v-0825497c="" class="theme-list"><div data-v-0825497c="" class="light-themes"><h5 data-v-0825497c="">Light themes</h5> <ul data-v-0825497c=""><li data-v-0825497c="" class=""><span data-v-0825497c="" style="background: rgb(33, 181, 111); box-shadow: rgb(33, 181, 111) 0px 3px 12px 0px;"></span> <span data-v-0825497c="">Cadmium Light</span></li><li data-v-0825497c="" class=""><span data-v-0825497c="" style="background: rgb(104, 134, 170); box-shadow: rgb(104, 134, 170) 0px 3px 12px 0px;"></span> <span data-v-0825497c="">Graphite Light</span></li><li data-v-0825497c="" class=""><span data-v-0825497c="" style="background: rgb(12, 139, 186); box-shadow: rgb(12, 139, 186) 0px 3px 12px 0px;"></span> <span data-v-0825497c="">Ulysses Light</span></li></ul></div> <div data-v-0825497c="" class="dark-themes"><h5 data-v-0825497c="">Dark themes</h5> <ul data-v-0825497c=""><li data-v-0825497c="" class=""><span data-v-0825497c="" style="background: rgb(64, 158, 255); box-shadow: rgb(64, 158, 255) 0px 3px 12px 0px;"></span> <span data-v-0825497c="">Dark</span></li><li data-v-0825497c="" class=""><span data-v-0825497c="" style="background: rgb(244, 130, 55); box-shadow: rgb(244, 130, 55) 0px 3px 12px 0px;"></span> <span data-v-0825497c="">Material Dark</span></li><li data-v-0825497c="" class="active"><span data-v-0825497c="" style="background: rgb(226, 192, 141); box-shadow: rgb(226, 192, 141) 0px 3px 12px 0px;"></span> <span data-v-0825497c="">One Dark</span></li></ul></div></div></div> <div data-v-2de116aa="" class="sponsor"><div data-v-2de116aa="" class="section-container"><h2 data-v-2de116aa="" id="sponsors" class="slogan">$$ Sponsor $$</h2> <div data-v-2de116aa="" class="sponsors"><h4 data-v-2de116aa="">Platinum Sponsors</h4> <ul data-v-2de116aa="" class="sponsors-list"><li data-v-2de116aa=""><a data-v-2de116aa="" href="https://readme.io/"><img data-v-2de116aa="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAABQCAYAAAAnSfh8AAAABHNCSVQICAgIfAhkiAAAAF96VFh0UmF3IHByb2ZpbGUgdHlwZSBBUFAxAAAImeNKT81LLcpMVigoyk/LzEnlUgADYxMuE0sTS6NEAwMDCwMIMDQwMDYEkkZAtjlUKNEABZgamFmaGZsZmgMxiM8FAEi2FMk61EMyAAAVJElEQVR4nO2da3hcVbnH//81M+mVXigpyC1kZqAHi5Uea5uZcClWHkTljoBYrscDSBEBKUgz6ZDOJEVEQDyg+ChwPEeUqlykgGKlIJ2ZtlTCxXLNTEiLVCiFpkhzmdnrPR/S1DTZe8+eSdLLcf2eJx9mr/Wud+2Z/c6s9V5WAIPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAxDDnf1BAz/2gQTqesJ9Qm3Pnm//451N3w2t7PmtCfh39UTMPxro8ibAHHt49eFFwAYA7ZB7eoJGAyG8jEGbDDswRgDNhj2YIwBG3YpIvLOrp7Dnsx2J1Z1Iv1lRVwDkakgR5QyCIFuEbwn5PPUWJq1Oh9Ew3GFYnJViVXVfhQuADgbwMEg9i75DgTvCfi7Tp9v8TsLZm4qWd6wS8nW1x4AAMFk+ioF3Lar57On4Qd6XPmKuAkAwPIiSyQqCZkKhfNCakSbNKbm5epqH7PrG46vGqf9hVtI62KCvnIn36MY4wn59ihdOK0qvrq2rWHm3wc1nsGwB+GvSmQOJ6RpKAclUEXh0mAyE8/FIov6tlUn01UCa5kCw0OsM+j3F74P4GulyFXFl4/0+UdcAGKU49ia72QXRpbYtR14a2bUyA45RgSfBVAN4ThQ8gA/IqRVQ63IxWpW2MkeklgxxafUsRAcDmBfiBDkVgj+JiKvKMu/oqVh1tul3I8d+37vxTFjOz8+HkQEwiAoEwHpBLhRgBep/X/MLpy5drtAfG1FeMSWiFg75gkUfPL3tgXR1zwpjS/3h/wjPy+UORR8EpT9ISQgWwR4DaKetqzOB9sajuss6WbiokL+zMmiOKHvZSqsyN4Qadl+QYTBxlW1hJwAkSMATASkC+QGAqu7WfHQuroZG5zUHJjMHDCCOJFaaoSyHwSjQG6EYB3Ap7KFzmVeVpmOLBFf6I3MLALHCDAFgsk9NyIdEPU2oNdqX+CZ1gUz33AbhsFEul4Ri9w6DQYNXJ2LRW8HgIMXPzsxYPnWEAgOhy4R6cwWuvcq5Y2tTqS/7CMeLdox7xvf0jBrS+/LgxvXfMKvu+tIOZ/gXs5zwoPZ+ugZ2y/E11YE/e0XkXIFwSOKqdUiGUXe1lIX+Q1I94BpP4Lx1GT6GQNxMYExxfRA1PzcwkgqnFh5MqgfsbmXv2fro65JF7h7TSC4sXsegesIuPcFNmqR63P1tfe6LaE1eVGuLnIfAAQXpc5Rir8cOH/8PlcfPREAqhtXHq/EutXt/RUgD+BnzPuu7/u57t+0etIoXbgZIueTdMyTECBHUVe31Nf8rsg97kBlfO3Ycf72bxK4HMSBxfqL4EUQ38/mI79AA3X/dgXi4FImUCoEbg4tWj0VACoK6o7hMl4AIDnyIAQmlyKjPCaz5FGx3eEXXJQ5NyBdrytinqvxAo92jeHcPnK1oUD7y4r4sRfjBQBFRgAsCTVmnj4wmTnAiwwAhBLpU+nn6yS+Wcx4e/WQ8udQIjNfoO2dmy6rFAAILc6EQxu71yjgNg/GCwCVirwnlMjc7qFv70T3s59az9yCycx1PtFPFnt/CQQIXCaBQioYT00GelZEo63CCwQudjPebfJBUD8STqa/43Xq4cTKk8f5298k0eTFeAGAxKcJ/DwUyDwbSj53UP92RSDgdQLlQCAAVUgEF2U+JWRJy9tyUCN9FcM5fjCZuU4p+YWb4W7j6Wx+/JlvXxPpAIBgIvUNKnmGwGHl6CVwzAjIqtDiTNGtRzCZuYzEQyQmFOu7gw5CkXIzUPrnFFyU+RQKkiEwrVRZUr5FkZNKlRswh8bMhQry3ZJ0g0fQj9+Em5orfeCTXg2rD4tDyZVnF+sUSqYbQP0ICdsvoOLzRBTIZ/p//jsnjCRyEpRcyT089zqUTJ3i5QERYMNW5T8TDVO7ASCcyFytyLsIDMphR+AAFOTxSd9d4fjlEWrMnEiROwelh3JmKf0/EV+zD6mXktinfJ38XLmyPQNgX6XlB2XqPlp0R5pkeatR0bcjvtbxhyOYSCUJLCxr7D70fP56aWV87djeazvFgEn6CfzHztBVKlqpj730k5GFvQH+zEtfirqsN6QVbkyfIJBbio4v2CqC90XEdf9O4tAJ3b6EXVvwpjXjofVPyZ0b3x8d6L6j7Id/iCDwbyDGDUK+bKcqif1CgS1ftWsLLsqcq8g6N3kBRID1AF4RwDUUSnLKXv4tN/a+3mkf9O7669u6YNYyrTktT5mep0x36ue38lcTmFRsPBF5qtexMem7K/YSwb1OBiUinRpoyiscnq2PjsnWRyuzU6IjteZRGjLAibQdyuV2+yHmu64mub/r/IANENwmGheI5tla5Dsi+Eux+3IimFwxg4Dtw9tH53ot8p2CVjV5H6sLWtUIWCfAu+XqLaJPRPAwgHla5GIRaRCR1z3LC94X4HYRuUQE1wrwkAgGOJB2lJEv9r8WjKcmU8ldLmIbtcjleZ81KRuLHtwSi07NxqL7aM1pAgxw1PVC6HlV8dX7AaYaCSAlB7zc+zKcTNt3Ay61u65FMiQfh3ANgM6thYq/9rZNyKtrnZw5IvhAK99xrXU1L+3QcBatHJACkAom040KWGAzlwBYuBhAw/Z53/HmCGnfOM/tVgW4fWu+om5Dw4yt/SZzczCZvpDk3aX6RJTwW25fzSK4v2sMv/72NdGOPpffArAqHF/1XwhYSwCcUIpONwTYJFCn5ur7he7uXtMYfK/7fxVxlqu84HEWfF/t65kG8P1QIjNbRD9BcqSdHInaAdf8jBEY76CnlQXfMTmbMGFuYeRlAOeGkpksIbGBujjSF7DOB3CzqwEL8ASA99z62MtREXKu255PA8+zj+GUqOCEcp0B5dL/wRbgJdG8PLcwmrLrv82grnB8uIXfGGC8/cjVRWKhxvQXCR45QFzLaehjwLp90xzlugflXdlY5Gr7JkoOuDeUzGhA7nObU18OvDUzSrbKGY63KFiWjUXmOoW/WhpmbTnw1sxpIz6Wv5A43KteN0h8LVtnE3e/dEbeijdfSn/HF0mMtRGFCFr/MXLMWe/O//SAbVW2PvJ0OJm5HRAnr/MO0Y9wfNU4geW8bSTmFovxZ/M18ZA/c4bteyP6VBQz4AJlQVtd7QtufZwIJdMnw+HbBwBA/jC7LbZXKsFk6mGCp5QjOxQIcB/HVV6WvfLQLqc+VvvG430OqaECtGTra35d1K1BChOZn4MywIBBTKuKN09oa5i+uee1NcdplyIi72wtVMwvog3ZWOS/Q8n0BQSOK9YXAAIfo5YOoSUBBH5+o1js+u1rIh3VifR1PniIxRdBIGuydbV/cGpva5i+OZhM/cn52ZEldsbbS0GrX/mVZWvABAKV8bVjNzZM/QcAWAF9kg8YbT9PpLOxqP1Sry8N1JJI/5IYmKdBcmZVfPnIXbeE1nq33BMXQwQPZmORi4s9mD7A2asqeDfYtPICNGaKK9QyYK8L9PgUVKBjGoA/97zmTKchqNRPBiybnfoCP4JHA1aAo88AwLIdMqNcaI1FHgs1Zt4lsK+X/k4I8LdifRTUq4DYGzBZ6Sb71r6+V8IbLcf20ejebk+EzHbqR6A7mExfVWyu23ofanfgAQGfv2LkJ10NOKDxm1Ai/Q9vinYYnU5r/z4TuCmUSH+r5LF7KCuWOlhE5L0OX+ASLxlRQhzh9A1FopYiA/ZM9p1dmjT7xiyrnSejHH+V+vNxvmL5mEC3x94Scm7Ccq86QQoS6RSI0z3LlIkWvVk55/u7h/kunZGXZLq92LMNANuKgpxaZytgdtExegZyadIHuf8Ck6Hh+pkkORn99g27O0J1p+eKJ8HkYfe7K/nn+yeodNLXnh/7V/uWgWxomPF+KJF+31tMl5OcHjARtnnVuW2s9cWO1hkSSMdtz9CqoZdMtEEhVBNNPXAJWEpsCxocsN3/DCUEt+sgYZtIIEC+d19WwsBbincChNrRY02KpyV7H50fldR/92f4t4haxrv+AmuROVZh9POljmuhU40IyDq3HFwRXFsojPKUGNEff6BjCYHjy5EdFF2jSilVdH6ARbICDqrKiIQQ6qmi/YAA4sv9JVbOuOY8/3NsOt6jQCaWoA8iMrHMStbdE5FOpyW0CN4EMKiDDATosHz4g6sBWwofbPdylkgomXZ9YERxU7ljB5Oprdw980L6stGpQcAHs/XR64ZBn60Tpjow4oBWwNuSNr62AtI+ydPbK3jfqR/BUsNCzvvpPRHyXQBT7Bvl/mx97Y1DocbdiSX8QiiRPqTUQTXgJ2Ab8O5FaT0n6MULawO1BHd3+xXiNQKft22kePLylqRPsI60N2AFHAPgf7yMEwx8NJOwX473h2Cr476V4n2FFF9bQbZHPPffI+BrgBxj20KeAODGodBSLIy0uJxljaeMfXKuEplbvKOdbFlSOxctKSheYddEcEYwufIop0J/J0KNK4+DyDldo3FVb5VTL0I0E/iMvT5cDI8GrERf6PX9tUSv8Tk8IASPDCXTUS/xzurAlq948uzuQVDrZ6F4iUNzTfWi1NGtC2ufLWXMUDJ9HgVnflih5266/qiPAHOo3bBhWaN/LwLHeAzF+mlVvNlzuV+wMfUliH6MkEtGbJUHsET6f0+67YdnBxOZoiGa8KL0dCHO9zon34TJq0Xg7CAT3FUVX+66EquKN09QkMVede4p5K3RS90+f6V4T7ip2TXu3JdQIj0PgvtAnDwhrx7prX4qlkp5D0TWe592L1SA3OB6ooHIkwDKXEPzvOE8GGAo6Mn6yTxAyHl27SSn+P0dy6qT6TNaY1HH/WlVvHmCz98Zo5are4siCJwUfGPlvTmRC3pj0irve0wCVgcdHFAKcm8wkdqcq6+1NfTqptWHiZV/mKDnXOiWKw/tCidSDwO0XUmR+LTPP+KhcFPz+S0Lpg/wCQTjqckMdDxKwDZZZU+mrWH65lAyfT+AC+3aCYShO56uSmTObKuPvOo0TmhxJiyWvoXAKX1kjwv52x/ILpEzi6VS/rAtVnYq5ZVwWRaJUr/MlZ9KeSTBITPgcHzVuHxFoWc8l1Ck8m39VFVj6iNrlHq9/xLWDktJEzXOcSoQIPEZBawNJjI/pujfFqzRrwYmje3Apg8qtV+mKcqXIB1z7crkFOS8UDLzahZYDPTkFYcS6Z+D9kUXIMYRXBZKpO7T5H2+vO8FTNq7S3/03qHQOIe6cBXJIid3iKpanDkEANo6x72DhqndmvID5WDAAKCIL4je+nowmboXxFMQeZf0VYrGHAX5T6B4CSAtca0E2q4LHF/VmDoSWnW5GYULew9Gvvf5EKXb1t1w9Id5XyBRYeW/CsDplNdP+ikvBnvSJR8qgK+L399VYenJQmsaNE6CJScqm4MfSZwafiMz33UJHbDKd+xT3HdSHEQllJKhDTiI37o5IGwOCJvd+vkU/xwQNo/YKjd6GbdtQfQ1AZNufQiMUZRvUzEdCHR8iC0bOxGw1ivqxwC53LXGVXGHXzUWfEkBHHN5CZDkRT7gGQSsdmzZ2KmELyuyrm/ITxy+xgjuFbCkNWBJa9DffiMA5GJHrRHgAfd75EQFXqOESxXUcxR5XFG+7bl+12NcGsDsgLA5QHnlkEUrZ3mU6aMGJ/XKVyczjqmpTvQ+H/6C734AWHfDZ3MirC+iM6CI80k8FKC8UmHls4CVoeBuEl92KwgS8kX3JbTCH0PJMlIpe4zT/cPRcmcomS5a6G47L8FeQ2rBdPeYD5yA93Ozc4fVNAbfSP+7GvLiC96VrYv8tO+VloZZbwcTqfkk3WpQvfArFKnx3SGJRI36puiO6GCWwgJYADZ7qbn2go/iKZbthJLyE3H6bmOysZpbwsn0NNB5lVIOAszP1kWecP0FJjCJQFUZf0UPXyNRQWB8WX87+cSJQXEWrVx+wlkieHCohtTALS11NbYe7lx97Y+AQRiwSFY0S3IqtSyYvlE0vySC98vXi3oIBn2E7m4HKS1TohdCUFbSUn9E0C3EpdlY9BYAUBCUdi7vbo7SLLo33ek0TO3OxiJnivA6AGXn4gqw3gJPzsWi890KKlrqaq7QYLzYKRI2428QCZySt6yS/8NFbmHkZYGKiuDFUmW1YGG2PurtS0N2RsK0q/4PSpY5i1ZLffTrmrxIBGUlLwGACJ6DYiRbF/1J7zUlQDmb/d0SEXzQumBWyQcQoGf5NryQkq2PfE/n9WEiuFvEJdWyPyJZAeZ3jeaU1likeN0sKblYZJElKiqCZzypAJ4AArOyC2euXd9w1DsCFK9X7UeuvubNbKFrhhZcJSLriuoUPKehjs7VR3vO+KJ9eqGFPnnVVJ6O/9GiB/WZOskLeXNxabGVzdVF7sv7raCAyVKOExLBM6J5djYWmZWti+yQ2sxwU3Ol6K1ZD8ek7vZooCkXi7oeIGZHddPqw6gLA840ske0EjzWUl+bLVVPXyrja8eODWw+QQmPBXEEevaPYwB0A/IRwFaIPC/0LcvVzUqVeqh7X0KLVk+FKpwGYCYEQfScSNEBwbuArIT4fp1dWLODYQRvWjMehe6LKGIbq9bK96DriSJxUcHAqijFOhbk4RDpiXmSmwi8JOST/R/GcFNzpbY6Tt/h/GnN93JWza/6Hmoebsocq7Xz+WUQ6VLjJ9/TYnPgQij53EGC/Bl2Yv+Enbn8uHt6TxXtTzi5qkbDqnGSVvCtbInNWumqYon4gm+silD00QCOILG/QCZA2CXAh4rMQfB83o8/td0QectxpsC2kxMFv3UrPtjdEchj2fyE053edIPh/yPbnbnh+KoDxW9dAvBwtzKxHiGOhqACwFgQ+0DkgGIn2Xth2/7gbwA2AyiA2CJwjwES3CTg0lxdzcOD+ZUyGPZEhiYas0R8Va+vPjgghVohPgfydC+5rSJYBWKpQD2t8nyp30mABoOhCMNSFlAZXzt2XKB9PoAbbLOQBM0iMi+7sLa8VEqDwQBgmOt6go3pORQ82jewLcCjHFf5FTsHg8FgKI1hTYjI1UX/pIntCQcCvNE1mmcb4zUYhoZhz2hqXRC5t/dfd2jwWi9FAAaDwRvDn5JIikDuFOCt1rqapcOuz2D4F2KnHOyuCv7fal+hw4R5DAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDDb8HxHOKOxEYzfJAAAAAElFTkSuQmCC" alt="readme"></a></li><li data-v-2de116aa=""><a data-v-2de116aa="" href="https://qordoba.com/"><img data-v-2de116aa="" src="data:image/png;base64,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" alt="qordoba"></a></li> <a data-v-2de116aa="" href="https://opencollective.com/marktext#platinum-sponsors"><svg data-v-2de116aa="" viewBox="0 0 1024 1024" aria-hidden="true" class="icon"><use data-v-2de116aa="" xlink:href="./static/sprite.svg#add-usage"></use></svg></a></ul> <a data-v-2de116aa="" href="https://opencollective.com/marktext#platinum-sponsors"><img data-v-2de116aa="" src="./Mark Text_files/platinum-sponsors.svg"></a> <h5 data-v-2de116aa="">Bronze Sponsors</h5> <a data-v-2de116aa="" href="https://opencollective.com/marktext#platinum-sponsors"><img data-v-2de116aa="" src="./Mark Text_files/bronze-sponsors.svg"></a></div> <div data-v-2de116aa="" class="ask-sponsor"><h4 data-v-2de116aa="">Sponsor Mark Text Development</h4> <p data-v-2de116aa="">Mark Text is an MIT licensed open source project, you will always be able to download the latest version from <a data-v-2de116aa="" href="https://github.com/marktext/marktext/releases" target="_blank">GitHub release page</a>. Mark Text is still in development, and its development is inseparable from all sponsors. I hope you join them:</p> <div data-v-2de116aa="" class="button-group"><a data-v-2de116aa="" href="https://opencollective.com/marktext#platinum-sponsors" class="opencollective"><svg data-v-2de116aa="" viewBox="0 0 40 40" aria-hidden="true" class="icon"><use data-v-2de116aa="" xlink:href="./static/sprite.svg#opencollective-icon-usage"></use></svg> <svg data-v-2de116aa="" viewBox="0 0 171 25" aria-hidden="true" class="icon"><use data-v-2de116aa="" xlink:href="./static/sprite.svg#logotype-usage"></use></svg></a> <a data-v-2de116aa="" href="https://www.patreon.com/ranluo" class="patreon"><img data-v-2de116aa="" src="data:image/webp;base64,UklGRkgBAABXRUJQVlA4TDwBAAAvF8AFEL/BppEkR+ui43H86RyI10fnzQwNhm0jKfI9c/3f6uEybiNJUc/Se/MPkvdwiCDbphz3NxzAg+GfHitey2t6nHQb8dk+LS41loN1R52b02Avl792w+UEA/MIMOQEEghsrGApQHa4GRjdTEg8Ck/EEQNfmS4BioW8lV0M1bnEHmWCslatmc2lN0iXUUl8JP8FG7ACHEaynTZmZvubmRXm9N+aQVJSQUT/FbRtw7jbABwUUUiZCKgTUveP6qZZBHFfkKRZBkGMRi9HvY/Tvu+vtEKmxPIqzD5G971d0pPGrOHjIcD4XJ9Hi9lGQjHeQd5hnAHrMYl7JiIMac8eCYwdYY7xkrOywTpjgJeWsy6wnOwgHwjaHBWuP48+kPbZABR9HweAtex/BQAU96K9b9vQ/8P/AHWo/zMC" alt="patreon">
+          Become A Patreon
+        </a></div> <div data-v-2de116aa=""><strong data-v-2de116aa="">What's the difference between Patreon and OpenCollective?</strong> <div data-v-2de116aa="" class="description"><div data-v-2de116aa=""><p data-v-2de116aa="">Sponsored by Patreon, goes directly to support Ran Luo's work on Mark Text. Sponsored by Open Collective, all expenses are transparent, and used for the development of Mark Text.</p> <strong data-v-2de116aa="">We also accept <a data-v-2de116aa="" href="https://github.com/Jocs/sponsor.me" target="_blank"> One Time Donations</a></strong></div> <img data-v-2de116aa="" src="./Mark Text_files/do_code.image--assets.svg" alt="" class="bg-image"></div></div></div></div></div> <div data-v-1a30509d="" class="footer"><div data-v-1a30509d="" class="container hero"><div data-v-1a30509d="" class="inner"><img data-v-1a30509d="" src="./Mark Text_files/new_message.image--assets.svg" alt=""> <h1 data-v-1a30509d="">&lt; Have Something to say? /&gt;</h1> <p data-v-1a30509d="">
+      Send us an email: <a data-v-1a30509d="" href="mailto:ransixi@gmail.com">ransixi@gmail.com</a></p> <p data-v-1a30509d="" class="follow"><span data-v-1a30509d="">You can also follow us by:</span> <a data-v-1a30509d="" href="https://twitter.com/marktextapp"><svg data-v-1a30509d="" viewBox="0 0 1024 1024" aria-hidden="true" class="icon"><use data-v-1a30509d="" xlink:href="./static/sprite.svg#twitter-usage"></use></svg></a> <a data-v-1a30509d="" href="https://github.com/marktext/marktext"><svg data-v-1a30509d="" viewBox="0 0 1024 1024" aria-hidden="true" class="icon"><use data-v-1a30509d="" xlink:href="./static/sprite.svg#github-usage"></use></svg></a></p> <p data-v-1a30509d="" class="small">All Right Reserved © 2017-2019 <a data-v-1a30509d="" href="https://github.com/Jocs">@jocs</a></p></div> <div data-v-1a30509d="" class="overlay"></div> <div data-v-1a30509d="" class="background"><canvas data-v-1a30509d="" id="hero-canvas" width="1920" height="1080"></canvas></div></div></div></div><script type="text/javascript" src="./Mark Text_files/renderer.js.download"></script><div class="mermaidTooltip" style="opacity: 0;"></div></body></html>
